@@ -76,16 +76,16 @@ namespace BRTS.Web.Controllers
             }
 
         }
-       /*
+       
         [HttpPost]
-        public IActionResult SignUpRequest(IFormFile imageFile, Entities.Account Account)
+        public IActionResult SignUpRequest( Account Account)
         {
-            BRTS_Providers.AccountProvider.Account _account = new BRTS_Providers.AccountProvider.Account();
-            _account.SignUpNewAccount(imageFile, Account);
-
+            ApplicationDBContext _dbContext = new ApplicationDBContext();
+_dbContext.Accounts.Add(Account);
+_dbContext.SaveChanges();
             return SignIn();
         }
-       */
+       
         [HttpPost]
         public IActionResult SignInRequest( Account Account)
         {
